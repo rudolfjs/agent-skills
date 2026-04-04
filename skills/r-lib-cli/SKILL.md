@@ -1,5 +1,6 @@
 ---
 name: r-lib-cli
+license: MIT
 description: >-
   Comprehensive R package for command-line interface styling, semantic messaging,
   and user communication. Use this skill when working with R code that needs to:
@@ -12,10 +13,7 @@ description: >-
   (7) Work with ANSI strings, hyperlinks, or custom containers.
   Also use when migrating from base R message/warning/stop, debugging cli code,
   or improving existing cli usage.
-license: MIT
 metadata:
-  author: Garrick Aden-Buie (@gadenbuie)
-  version: "1.0"
   repo: https://github.com/nq-rdl/agent-skills
 ---
 

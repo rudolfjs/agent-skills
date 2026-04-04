@@ -1,5 +1,6 @@
 ---
 name: r-lib-lifecycle
+license: MIT
 description: >-
   Guidance for managing R package lifecycle according to tidyverse principles
   using the lifecycle package. Use when: (1) Setting up lifecycle
@@ -8,10 +9,7 @@ description: >-
   functions as experimental, (6) Understanding lifecycle stages (stable,
   experimental, deprecated, superseded), or (7) Writing deprecation helpers for
   complex scenarios.
-license: MIT
 metadata:
-  author: Garrick Aden-Buie (@gadenbuie)
-  version: "1.0"
   repo: https://github.com/nq-rdl/agent-skills
 ---
 

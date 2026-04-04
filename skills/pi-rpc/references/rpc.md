@@ -15,12 +15,14 @@ Create → SESSION_STATE_IDLE
 
 Each session is a `pi --mode rpc` subprocess with stdin/stdout pipes. The server manages the subprocess lifecycle and event parsing.
 
-## Provider and Model Preflight
+## Provider and Model Selection
 
-Before creating RPC sessions, validate the provider/model pair with a one-shot JSON invocation:
+**If the user has not specified a provider and model, ask them.** Do not assume a default. Use `pi --list-models` to show available options.
+
+Before creating RPC sessions, validate the chosen provider/model pair with a one-shot JSON invocation:
 
 ```bash
-pi --provider openai-codex --model gpt-5.4 --mode json "Reply with OK."
+pi --provider <PROVIDER> --model <MODEL> --mode json "Reply with OK."
 ```
 
 If this fails, fix the model ID or provider authentication before calling `Create`.
@@ -33,7 +35,7 @@ If this fails, fix the model ID or provider authentication before calling `Creat
 PI_SERVER="${PI_SERVER_URL:-http://localhost:4097}"
 curl -sf \
   -H 'Content-Type: application/json' \
-  -d '{"provider":"openai-codex","model":"gpt-5.4","cwd":"/home/user/project"}' \
+  -d '{"provider":"<PROVIDER>","model":"<MODEL>","cwd":"/home/user/project"}' \
   "$PI_SERVER/pirpc.v1.SessionService/Create"
 # → {"sessionId":"abc-123","state":"SESSION_STATE_IDLE"}
 ```
@@ -77,7 +79,7 @@ curl -sf \
   -H 'Content-Type: application/json' \
   -d '{"sessionId":"abc-123"}' \
   "$PI_SERVER/pirpc.v1.SessionService/GetState"
-# → {"sessionId":"abc-123","state":"SESSION_STATE_IDLE","provider":"openai-codex","model":"gpt-5.4",...}
+# → {"sessionId":"abc-123","state":"SESSION_STATE_IDLE","provider":"...","model":"...",...}
 ```
 
 ### Abort a running session
@@ -124,16 +126,11 @@ Events are emitted by the pi.dev subprocess via JSONL on stdout. The ConnectRPC 
 | `retry` | Retrying after transient error |
 | `error` | Error occurred |
 
-## Model Mapping
+## Model Selection
 
-| Use Case | Provider | Model |
-|----------|----------|-------|
-| Code generation (TDD red/green/refactor) | `openai-codex` | `gpt-5.4` |
-| Code review (TDD reviewer) | `openai-codex` | `gpt-5.4` |
-| SWE tasks | `openai-codex` | `gpt-5.4` |
-| Anthropic tasks | `anthropic` | `claude-sonnet-4-20250514` |
+**No default model.** If the user/human has not specified a provider and model, ask them before creating sessions. Use `pi --list-models` to enumerate available providers and model IDs.
 
-Use exact model IDs from `pi --list-models`. For example, `o3-mini` is no longer available under the `openai-codex` provider.
+Common providers include `openai-codex`, `anthropic`, and `google`. Use exact model IDs from `pi --list-models`.
 
 ## Health Check
 

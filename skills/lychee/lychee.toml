@@ -33,7 +33,7 @@ exclude = [
   # Email addresses (often not real in docs)
   "^mailto:",
   # Private GitHub repositories
-  "^https://github\\.com/rudolfjs/",
+  # "^https://github\\.com/your-org/"  # add org-specific exclusions here
 ]
 
 # Exclude private/loopback IPs

@@ -1,5 +1,6 @@
 ---
 name: shiny-bslib-theming
+license: MIT
 description: >-
   Advanced theming for Shiny apps using bslib and Bootstrap 5. Use when
   customizing app appearance with bs_theme(), Bootswatch themes, custom
@@ -9,10 +10,7 @@ description: >-
   with thematic.
 compatibility: >-
   Requires R, shiny (>= 1.8.1), bslib (>= 0.9.0)
-license: MIT
 metadata:
-  author: Garrick Aden-Buie (@gadenbuie)
-  version: "1.0"
   repo: https://github.com/nq-rdl/agent-skills
 ---
 

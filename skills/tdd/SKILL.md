@@ -1,10 +1,11 @@
 ---
 name: tdd
+license: MIT
 description: >-
   Test-driven development concepts, cycle, and anti-patterns. Load when
   writing or reviewing tests, adding mocks, implementing new behaviour, or
   when an agent needs TDD guidance. Not for orchestrating TDD phases — use
-  tdd-team for that.
+  tdd-team-workflow for that.
 metadata:
   repo: https://github.com/nq-rdl/agent-skills
 ---

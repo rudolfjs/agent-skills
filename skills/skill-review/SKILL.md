@@ -1,12 +1,12 @@
 ---
 name: skill-review
+license: MIT
 description: >-
   Self-improvement loop for Claude Code skills. Spawns a high-effort Sonnet
   subagent to review the current session and produce actionable bugs and
   improvement suggestions for skills. Use at the end of any skill development
   session — after creating, editing, or debugging a skill — to get a second
-  opinion and close the feedback loop. Also triggers automatically when the
-  skill-review Stop hook detects that skills were worked on.
+  opinion and close the feedback loop.
 metadata:
   repo: https://github.com/nq-rdl/agent-skills
 ---

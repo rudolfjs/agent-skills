@@ -12,13 +12,13 @@ func TestNormalizeSourceName(t *testing.T) {
 	}{
 		{
 			name:  "short form gets prefix",
-			input: "github/rudolfjs/crabpod",
-			want:  "sources/github/rudolfjs/crabpod",
+			input: "github/nq-rdl/crabpod",
+			want:  "sources/github/nq-rdl/crabpod",
 		},
 		{
 			name:  "full resource name unchanged",
-			input: "sources/github/rudolfjs/crabpod",
-			want:  "sources/github/rudolfjs/crabpod",
+			input: "sources/github/nq-rdl/crabpod",
+			want:  "sources/github/nq-rdl/crabpod",
 		},
 		{
 			name:  "different provider short form",

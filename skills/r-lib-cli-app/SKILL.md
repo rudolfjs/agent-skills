@@ -1,15 +1,13 @@
 ---
 name: r-lib-cli-app
+license: MIT
 description: >-
   Build command-line apps in R using the Rapp package. Use when creating
   a CLI tool in R, adding argument parsing to an R script, turning an R
   script into a command-line app, shipping CLIs in an R package, or
   using Rapp (the alternative Rscript front-end). Also use for shebang
   scripts, exec/ directory in R packages, or subcommand-based R tools.
-license: MIT
 metadata:
-  author: Garrick Aden-Buie (@gadenbuie)
-  version: "1.0"
   repo: https://github.com/nq-rdl/agent-skills
 ---
 

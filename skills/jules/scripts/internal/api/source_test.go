@@ -14,7 +14,7 @@ func TestListSources(t *testing.T) {
 			{
 				ID: "src_1",
 				GithubRepo: &model.GithubRepo{
-					Owner:         "rudolfjs",
+					Owner:         "nq-rdl",
 					Repo:          "agent-ops",
 					DefaultBranch: "main",
 				},
@@ -33,7 +33,7 @@ func TestListSources(t *testing.T) {
 	if got[0].ID != "src_1" {
 		t.Errorf("ID: got %q, want src_1", got[0].ID)
 	}
-	if got[0].GithubRepo.Owner != "rudolfjs" {
+	if got[0].GithubRepo.Owner != "nq-rdl" {
 		t.Errorf("Owner: got %q", got[0].GithubRepo.Owner)
 	}
 
@@ -50,7 +50,7 @@ func TestGetSource(t *testing.T) {
 	want := model.Source{
 		ID: "src_abc",
 		GithubRepo: &model.GithubRepo{
-			Owner: "rudolfjs",
+			Owner: "nq-rdl",
 			Repo:  "jules-test",
 		},
 	}
@@ -74,30 +74,30 @@ func TestGetSource(t *testing.T) {
 func TestCreateSource(t *testing.T) {
 	want := model.Source{
 		ID:   "src_new",
-		Name: "sources/github/rudolfjs/new-repo",
+		Name: "sources/github/nq-rdl/new-repo",
 		GithubRepo: &model.GithubRepo{
-			Owner:         "rudolfjs",
+			Owner:         "nq-rdl",
 			Repo:          "new-repo",
 			DefaultBranch: "main",
 		},
 	}
 	ts, client := newTestServer(t, 200, want)
 
-	got, err := client.CreateSource(t.Context(), "rudolfjs", "new-repo")
+	got, err := client.CreateSource(t.Context(), "nq-rdl", "new-repo")
 	if err != nil {
 		t.Fatalf("unexpected error: %v", err)
 	}
 	if got.ID != "src_new" {
 		t.Errorf("ID: got %q, want src_new", got.ID)
 	}
-	if got.Name != "sources/github/rudolfjs/new-repo" {
+	if got.Name != "sources/github/nq-rdl/new-repo" {
 		t.Errorf("Name: got %q", got.Name)
 	}
 	if got.GithubRepo == nil {
 		t.Fatal("GithubRepo is nil")
 	}
-	if got.GithubRepo.Owner != "rudolfjs" {
-		t.Errorf("Owner: got %q, want rudolfjs", got.GithubRepo.Owner)
+	if got.GithubRepo.Owner != "nq-rdl" {
+		t.Errorf("Owner: got %q, want nq-rdl", got.GithubRepo.Owner)
 	}
 	if got.GithubRepo.Repo != "new-repo" {
 		t.Errorf("Repo: got %q, want new-repo", got.GithubRepo.Repo)
@@ -118,8 +118,8 @@ func TestCreateSource(t *testing.T) {
 	if body.GithubRepo == nil {
 		t.Fatal("body.GithubRepo is nil")
 	}
-	if body.GithubRepo.Owner != "rudolfjs" {
-		t.Errorf("body.Owner: got %q, want rudolfjs", body.GithubRepo.Owner)
+	if body.GithubRepo.Owner != "nq-rdl" {
+		t.Errorf("body.Owner: got %q, want nq-rdl", body.GithubRepo.Owner)
 	}
 	if body.GithubRepo.Repo != "new-repo" {
 		t.Errorf("body.Repo: got %q, want new-repo", body.GithubRepo.Repo)
