@@ -165,3 +165,6 @@ pcsv.write_csv(tbl, path, pcsv.WriteOptions(delimiter="|"))
 - Before committing CSV changes → run `validate` to catch invalid Funding/COI values
 - To see overall progress across all 7 sheets → run `summary analysis/`
 - After editing the Excel workbook → run `excel-to-csv` to regenerate CSVs
+
+## Reference Files
+- `references/reference.md` — Schema definitions, data dictionary, allowed values, and PyArrow patterns

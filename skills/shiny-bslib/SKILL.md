@@ -9,10 +9,7 @@ description: >-
   inputs. Assumes familiarity with basic Shiny.
 compatibility: >-
   Requires R, shiny (>= 1.8.1), bslib (>= 0.9.0)
-license: MIT
 metadata:
-  author: Garrick Aden-Buie (@gadenbuie)
-  version: "1.0"
   repo: https://github.com/nq-rdl/agent-skills
 ---
 

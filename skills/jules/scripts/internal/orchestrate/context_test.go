@@ -8,7 +8,7 @@ import (
 
 func TestDetectProjectContext_Go(t *testing.T) {
 	dir := t.TempDir()
-	writeFile(t, filepath.Join(dir, "go.mod"), "module github.com/example/mymod\n\ngo 1.26\n")
+	writeFile(t, filepath.Join(dir, "go.mod"), "module github.com/example/mymod\n\ngo 1.24\n")
 
 	ctx, err := DetectProjectContext(dir)
 	if err != nil {

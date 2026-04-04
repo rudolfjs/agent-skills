@@ -7,7 +7,7 @@ description: >-
   orchestration pipelines that need full session lifecycle control (create,
   prompt, stream events, abort, delete).
 compatibility: >-
-  Requires Go 1.25+, pi CLI (pi.dev binary in PATH), buf CLI (for protobuf
+  Requires Go 1.24+, pi CLI (pi.dev binary in PATH), buf CLI (for protobuf
   regeneration only)
 metadata:
   repo: https://github.com/nq-rdl/agent-skills
@@ -52,12 +52,14 @@ curl -sf \
 
 If not running, start with `make serve` from `skills/pi-rpc/scripts/`.
 
-## Provider and Model Preflight
+## Provider and Model Selection
 
-Validate the provider/model pair before creating sessions:
+**If the user has not specified a provider and model, ask them.** Do not assume a default. Use `pi --list-models` to show available options.
+
+Once known, validate the provider/model pair before creating sessions:
 
 ```bash
-pi --provider openai-codex --model gpt-5.4 --mode json "Reply with OK."
+pi --provider <PROVIDER> --model <MODEL> --mode json "Reply with OK."
 ```
 
 If this fails, fix the model ID or provider auth before calling `Create`.
@@ -100,7 +102,7 @@ PI_SERVER="${PI_SERVER_URL:-http://localhost:4097}"
 # Create a session
 SESSION=$(curl -sf \
   -H 'Content-Type: application/json' \
-  -d '{"provider":"openai-codex","model":"gpt-5.4","cwd":"/home/user/project"}' \
+  -d '{"provider":"<PROVIDER>","model":"<MODEL>","cwd":"/home/user/project"}' \
   "$PI_SERVER/pirpc.v1.SessionService/Create" | jq -r .sessionId)
 
 # Send a prompt (synchronous — waits up to 5 minutes)

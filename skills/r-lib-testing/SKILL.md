@@ -2,10 +2,7 @@
 name: r-lib-testing
 description: >-
   Best practices for writing R package tests using testthat version 3+. Use when writing, organizing, or improving tests for R packages. Covers test structure, expectations, fixtures, snapshots, mocking, and modern testthat 3 patterns including self-sufficient tests, proper cleanup with withr, and snapshot testing.
-license: MIT
 metadata:
-  author: Garrick Aden-Buie (@gadenbuie)
-  version: "1.0"
   repo: https://github.com/nq-rdl/agent-skills
 ---
 

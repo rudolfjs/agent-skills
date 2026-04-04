@@ -6,10 +6,7 @@ description: >-
   script into a command-line app, shipping CLIs in an R package, or
   using Rapp (the alternative Rscript front-end). Also use for shebang
   scripts, exec/ directory in R packages, or subcommand-based R tools.
-license: MIT
 metadata:
-  author: Garrick Aden-Buie (@gadenbuie)
-  version: "1.0"
   repo: https://github.com/nq-rdl/agent-skills
 ---
 

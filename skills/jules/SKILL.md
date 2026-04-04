@@ -4,9 +4,8 @@ description: >-
   Use when dispatching tasks to Jules, creating or monitoring Jules AI coding
   sessions. Also covers approving Jules plans, sending follow-up messages,
   listing activities, and enumerating connected GitHub sources.
-license: Proprietary. LICENSE.txt has complete terms
 compatibility: >-
-  Requires Go 1.26+, gh CLI
+  Requires Go 1.24+, gh CLI
 metadata:
   repo: https://github.com/nq-rdl/agent-skills
 ---
@@ -45,7 +44,7 @@ jules session get ses_abc
 
 ## Self-Contained Environment
 
-This skill manages its **own pixi environment** with the Go 1.26 toolchain.
+This skill manages its **own pixi environment** with the Go 1.24 toolchain.
 
 ### First-time setup
 
@@ -283,10 +282,10 @@ jules activity list --session "$SESSION" | jq '.[] | select(.commitEvent != null
 
 ```bash
 cd ~/.claude/skills/jules
-pixi install          # installs Go 1.26 toolchain
+pixi install          # installs Go 1.24 toolchain
 pixi run build        # compiles scripts/bin/jules
 pixi run test         # runs all tests
 pixi run lint         # runs go vet
 ```
 
-For details on the API, see `reference.md`.
+For details on the API, see `references/api-reference.md`.

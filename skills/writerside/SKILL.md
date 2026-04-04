@@ -3,8 +3,9 @@ name: writerside
 description: >-
   Use when the user asks about Writerside topics, markup tags, documentation
   templates, or building/deploying Writerside projects. Covers semantic XML
-  markup, topic structure, procedures, code blocks, templates, Docker-based
-  builds, and documentation quality inspections for JetBrains Writerside.
+  markup, topic structure, procedures, code blocks, diagrams, navigation,
+  templates, Docker-based builds, documentation quality inspections, and prose
+  style guides for JetBrains Writerside.
 compatibility: >-
   Requires JetBrains Writerside or Docker for builds
 metadata:
@@ -19,11 +20,10 @@ Navigate JetBrains Writerside's semantic markup, project structure, and quality 
 
 ## Scope
 
-This skill covers **Writerside tool mechanics only** — how to use the markup, structure topics, build with Docker, and run quality checks.
+This skill covers **Writerside tool mechanics** — how to use the markup, structure topics, build with Docker, configure style guides, manage navigation, and run quality checks.
 
 It does **not** cover:
 - General technical writing craft (use a copywriting or editing skill)
-- Content review or style guidelines (use a review skill)
 - Documentation strategy or information architecture (separate concern)
 
 ---
@@ -41,6 +41,44 @@ It does **not** cover:
 **Procedures** — Step-by-step instruction blocks using `<procedure>` and `<step>` tags. These render as numbered sequences with clear visual separation — the primary pattern for how-to content.
 
 **Inspections** — Built-in quality checks that run in the IDE editor and during Docker builds. They catch invalid markup, broken references, duplicate IDs, and structural issues.
+
+---
+
+## Diagrams
+
+Writerside renders diagrams directly from fenced code blocks. Two options are supported:
+
+**Mermaid (default)** — use `lang="mermaid"` in a `<code-block>`. No server setup required. Supported types: flowcharts, sequence diagrams, state diagrams, git graphs, Gantt charts, pie charts. Install the Mermaid IDE plugin for editor support.
+
+**PlantUML (acceptable alternative)** — use `lang="plantuml"`. Requires Graphviz on the build system. Use when Mermaid lacks the required diagram type (use case diagrams, mind maps, JSON visualisation, detailed UML class diagrams).
+
+See [references/diagrams.md](references/diagrams.md) for syntax, examples, and a decision guide.
+
+---
+
+## Spell Checker
+
+Writerside uses the JetBrains IDE spell checker. Configure the language for your project (e.g., `English (Australian)` for en-AU):
+
+1. Settings → Editor → Natural Languages → set Project language to your preferred locale
+2. Commit `.idea/dictionaries/` to share the project dictionary with the team
+3. Add custom terms (product names, acronyms, domain vocabulary) via right-click → **Save to project-level dictionary**
+
+Prose style enforcement (banned words, substitutions) is separate — use `.wrs-style-guide.yaml`. See [references/style-guide.md](references/style-guide.md).
+
+---
+
+## Navigation
+
+The sidebar TOC is defined in a `.tree` file using nested `<toc-element>` tags. Key patterns:
+
+- **Ordering** — topics appear in tree-file order; drag-and-drop in the tool window or edit the file directly
+- **Wrappers** — empty `<toc-element toc-title="Section">` groups topics without needing an intro page
+- **Hidden topics** — `hidden="true"` excludes from sidebar but keeps accessible via direct link
+- **Short sidebar labels** — `toc-title` attribute overrides the full topic title in the sidebar
+- **Home page** — `start-page="topic.topic"` on `<instance-profile>`
+
+See [references/navigation.md](references/navigation.md) for full tree file examples.
 
 ---
 
@@ -66,3 +104,8 @@ Writerside does not require choosing one mode — Markdown files can contain sem
 | [references/documentation-quality.md](references/documentation-quality.md) | Built-in inspections, quality workflow, suppressing warnings, CI integration |
 | [references/templates.md](references/templates.md) | How-to guide template and Standard Operating Procedure template with Writerside XML examples |
 | [references/linting.md](references/linting.md) | Linting strategy — Writerside inspections as primary, optional external tools, recommended workflow |
+| [references/topics.md](references/topics.md) | Topic file formats (.md vs .topic), topic IDs, metadata attributes, when to use each format |
+| [references/diagrams.md](references/diagrams.md) | Mermaid (default) and PlantUML (acceptable) — syntax, supported types, embedding, decision guide |
+| [references/style-guide.md](references/style-guide.md) | Style guide configuration (.wrs-style-guide.yaml), rule types, spell checker setup for Australian English (en-AU) |
+| [references/navigation.md](references/navigation.md) | TOC tree structure, section wrappers, navigation ordering, hidden topics, toc-title overrides |
+| [references/lists.md](references/lists.md) | Definition lists, ordered/unordered lists, multi-column lists, nested lists — Markdown and XML |

@@ -7,10 +7,7 @@ description: >-
   YAML metadata configuration, and Quarto extensions. Also covers converting and
   migrating R Markdown (.Rmd), bookdown, blogdown, xaringan, and distill projects
   to Quarto, and creating Quarto websites, books, presentations, and reports.
-license: MIT
 metadata:
-  author: Mickaël Canouil (@mcanouil)
-  version: "1.1"
   repo: https://github.com/nq-rdl/agent-skills
 ---
 

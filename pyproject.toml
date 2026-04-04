@@ -1,5 +1,5 @@
 [project]
-authors = [{name = "Rudolf J", email = "r.schnetler@uq.edu.au"}]
+authors = [{name = "Research Data Laboratory", email = "tsv-datalab@health.qld.gov.au"}]
 dependencies = [
     "click>=8.0",
     "strictyaml>=1.7.3",

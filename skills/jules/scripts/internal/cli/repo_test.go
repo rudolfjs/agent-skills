@@ -14,20 +14,20 @@ func TestParseGitURL(t *testing.T) {
 	}{
 		{
 			name:  "ssh format",
-			url:   "git@github.com:rudolfjs/agent-ops.git",
-			owner: "rudolfjs",
+			url:   "git@github.com:nq-rdl/agent-ops.git",
+			owner: "nq-rdl",
 			repo:  "agent-ops",
 		},
 		{
 			name:  "https with .git suffix",
-			url:   "https://github.com/rudolfjs/agent-ops.git",
-			owner: "rudolfjs",
+			url:   "https://github.com/nq-rdl/agent-ops.git",
+			owner: "nq-rdl",
 			repo:  "agent-ops",
 		},
 		{
 			name:  "https without .git suffix",
-			url:   "https://github.com/rudolfjs/agent-ops",
-			owner: "rudolfjs",
+			url:   "https://github.com/nq-rdl/agent-ops",
+			owner: "nq-rdl",
 			repo:  "agent-ops",
 		},
 		{
@@ -43,7 +43,7 @@ func TestParseGitURL(t *testing.T) {
 		},
 		{
 			name:    "only owner, no repo",
-			url:     "https://github.com/rudolfjs",
+			url:     "https://github.com/nq-rdl",
 			wantErr: true,
 		},
 	}
