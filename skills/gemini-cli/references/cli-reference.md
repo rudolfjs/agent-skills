@@ -34,13 +34,19 @@ Use `stream-json` to get session IDs and streaming events. Use `json` for simple
 
 | Flag | Alias | Values |
 |------|-------|--------|
-| `--model <model>` | `-m` | `auto`, `pro`, `flash`, `flash-lite` |
+| `--model <model>` | `-m` | `auto`, `pro`, `flash`, `flash-lite`, or a full model ID |
 
 Model guidance:
 - `auto` — Gemini routes to the best model for the task (default)
 - `pro` — Gemini 2.5 Pro: highest quality, slowest, most expensive
 - `flash` — Gemini 2.5 Flash: balanced speed/quality, good for web search
 - `flash-lite` — Fastest, lowest cost; best for simple lookups
+
+Full model IDs can also be passed directly:
+- `gemini-3-flash-preview` — Current default fast model
+- `gemini-3.1-pro-preview` — Current quality model
+- `gemini-3.1-flash-lite-preview` — Lightweight 3.x model: fastest and cheapest, ideal for simple lookups and classification
+- `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite` — Previous generation (still available)
 
 ### Approval Mode
 

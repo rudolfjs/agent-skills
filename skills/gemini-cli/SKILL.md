@@ -173,9 +173,10 @@ Accumulate `session/update` notification text chunks to reconstruct the full ans
 |--------|-------------|-------------|
 | `fast` | `gemini-3-flash-preview` | **Default.** Most tasks — search, review, generation, analysis |
 | `quality` | `gemini-3.1-pro-preview` | Complex reasoning, architecture, nuanced writing |
-| `auto` | cheapest available | Avoid — routes to `gemini-2.5-flash-lite` regardless of task |
+| `lite` | `gemini-3.1-flash-lite-preview` | Lightweight tasks — simple lookups, classification, quick summaries. Fastest and cheapest in the 3.x family |
+| `auto` | cheapest available | Avoid — routes unpredictably regardless of task complexity |
 
-Full model IDs also accepted: `gemini-3-flash-preview`, `gemini-3.1-pro-preview`, `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite`.
+Full model IDs also accepted: `gemini-3-flash-preview`, `gemini-3.1-pro-preview`, `gemini-3.1-flash-lite-preview`, `gemini-2.5-pro`, `gemini-2.5-flash`, `gemini-2.5-flash-lite`.
 
 Default when `--model` is omitted: `GEMINI_DEFAULT_MODEL` env var → `gemini-3-flash-preview`.
 
