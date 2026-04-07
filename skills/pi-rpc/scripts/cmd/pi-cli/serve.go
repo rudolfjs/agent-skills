@@ -13,6 +13,7 @@ import (
 
 	"github.com/nq-rdl/agent-skills/skills/pi-rpc/scripts/gen/pirpc/v1/pirpcv1connect"
 	"github.com/nq-rdl/agent-skills/skills/pi-rpc/scripts/handler"
+	"github.com/nq-rdl/agent-skills/skills/pi-rpc/scripts/internal/config"
 	"github.com/nq-rdl/agent-skills/skills/pi-rpc/scripts/session"
 )
 
@@ -72,7 +73,7 @@ func runServe(portFlag, binaryFlag, defaultProviderFlag, defaultModelFlag string
 		defaultProvider = os.Getenv("PI_DEFAULT_PROVIDER")
 	}
 	if defaultProvider == "" {
-		defaultProvider = "openai"
+		defaultProvider = config.DetectProvider()
 	}
 
 	defaultModel := defaultModelFlag
