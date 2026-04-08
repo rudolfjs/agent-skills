@@ -1,4 +1,0 @@
-kind: Added
-body: >-
-  Add lychee link checking as a pre-commit hook and CI workflow to catch
-  broken URLs in skill files before they reach main.
