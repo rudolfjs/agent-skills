@@ -49,6 +49,7 @@ Thank you for contributing! This guide walks you through the process.
    - **Skill validation** — checks `SKILL.md` frontmatter and structure
    - **Ruff lint & format** — enforces Python code style
    - **Lock-file check** — ensures `pixi.lock` stays in sync
+   - **Link check** — verifies URLs in skill files are reachable (requires [lychee](https://github.com/lycheeverse/lychee) on PATH)
 
    If a hook fails, fix the issue and commit again.
 

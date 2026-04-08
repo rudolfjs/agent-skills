@@ -35,6 +35,14 @@ repos:
         files: (pyproject\.toml|pixi\.lock)
         pass_filenames: false
 
+      - id: lychee-links
+        name: Check links in skills
+        entry: bash
+        args: [skills/lychee/scripts/check-links.sh]
+        language: system
+        files: ^skills/.*\.md$
+        pass_filenames: true
+
       - id: test
         name: Run tests
         entry: pixi
